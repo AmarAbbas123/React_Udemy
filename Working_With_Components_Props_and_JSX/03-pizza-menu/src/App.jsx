@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom/client";
-import image1 from "./assets/focaccia.jpg";
+import image1 from "./assets/spinaci.jpg";
 import "./index.css"
 
 const pizzaData = [
@@ -75,8 +75,29 @@ const Menu = () => {
     <>
       <main className="menu">
         <h2>Our menu</h2>
-        <Pizza />
+        <Pizza
+          name="Pizza Spinaci"
+          ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+          photoName={image1}
+          price={10}
+        />
       </main>
+    </>
+  );
+};
+
+const Pizza = (props) => {
+  console.log(props)
+  return (
+    <>
+      <div className="pizza">
+        <img src={props.photoName} alt={props.name} />
+        <div>
+          <h3>{props.name}</h3>
+          <p>{props.ingredients}</p>
+          <span>{props.price}</span>
+        </div>
+      </div>
     </>
   );
 };
@@ -92,14 +113,6 @@ const Footer = () => {
   );
 };
 
-const Pizza = () => {
-  return (
-    <>
-      <img src={image1} alt="Italian focaccia bread with rosemary" />
-      <h3>Pizza Special</h3>
 
-    </>
-  );
-};
 
 export default App;
